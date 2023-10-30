@@ -1,32 +1,32 @@
+transcript off
+onbreak {quit -force}
+onerror {quit -force}
+transcript on
+
 vlib work
-vlib riviera
-
-vlib riviera/xil_defaultlib
+vmap -link {/home/alfredo/Documents/BrightEyes-TTM_Repo/FPGA/ttm/project/ttm.cache/compile_simlib/riviera}
 vlib riviera/xpm
-vlib riviera/fifo_generator_v13_2_1
+vlib riviera/fifo_generator_v13_2_8
+vlib riviera/xil_defaultlib
 
-vmap xil_defaultlib riviera/xil_defaultlib
-vmap xpm riviera/xpm
-vmap fifo_generator_v13_2_1 riviera/fifo_generator_v13_2_1
+vlog -work xpm  -incr -l xpm -l fifo_generator_v13_2_8 -l xil_defaultlib \
+"/opt/Xilinx/Vivado/2023.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"/opt/Xilinx/Vivado/2023.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
-vlog -work xil_defaultlib  -sv2k12 \
-"/opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-"/opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+vcom -work xpm -93  -incr \
+"/opt/Xilinx/Vivado/2023.1/data/ip/xpm/xpm_VCOMP.vhd" \
 
-vcom -work xpm -93 \
-"/opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_VCOMP.vhd" \
-
-vlog -work fifo_generator_v13_2_1  -v2k5 \
+vlog -work fifo_generator_v13_2_8  -incr -v2k5 -l xpm -l fifo_generator_v13_2_8 -l xil_defaultlib \
 "../../../ipstatic/simulation/fifo_generator_vlog_beh.v" \
 
-vcom -work fifo_generator_v13_2_1 -93 \
+vcom -work fifo_generator_v13_2_8 -93  -incr \
 "../../../ipstatic/hdl/fifo_generator_v13_2_rfs.vhd" \
 
-vlog -work fifo_generator_v13_2_1  -v2k5 \
+vlog -work fifo_generator_v13_2_8  -incr -v2k5 -l xpm -l fifo_generator_v13_2_8 -l xil_defaultlib \
 "../../../ipstatic/hdl/fifo_generator_v13_2_rfs.v" \
 
-vlog -work xil_defaultlib  -v2k5 \
-"../../../../ttm.srcs/sources_1/ip/fifo_dataprep/sim/fifo_dataprep.v" \
+vlog -work xil_defaultlib  -incr -v2k5 -l xpm -l fifo_generator_v13_2_8 -l xil_defaultlib \
+"../../../../ttm.gen/sources_1/ip/fifo_dataprep/sim/fifo_dataprep.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

@@ -1,13 +1,14 @@
--- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Tue Jun 29 12:35:59 2021
--- Host        : IITMMSDL002 running 64-bit Linux Mint 20.1
--- Command     : write_vhdl -force -mode synth_stub -rename_top clkSylapGen -prefix
---               clkSylapGen_ clkSylapGen_stub.vhdl
+-- Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+-- Date        : Sun Oct 29 12:06:04 2023
+-- Host        : alfredo running 64-bit Ubuntu 22.04.3 LTS
+-- Command     : write_vhdl -force -mode synth_stub
+--               /home/alfredo/Documents/BrightEyes-TTM_Repo/FPGA/ttm/hdl/ip/clkSylapGen/clkSylapGen_stub.vhdl
 -- Design      : clkSylapGen
 -- Purpose     : Stub declaration of top-level module interface
--- Device      : xc7k325tffg900-2
+-- Device      : xc7z020clg400-1
 -- --------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;

@@ -50,8 +50,11 @@ BEGIN
 	-- Generation of the carrychain, starting at the specified X, Y coordinate. 
 	carry_delay_line: FOR i IN 0 TO STAGES/4-1 GENERATE
 		first_carry4: IF i = 0 GENERATE
-    
-       ATTRIBUTE LOC OF delayblock : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+i);
+
+-- Leve this commented so the tool can optimize where this is connected.
+-- Usually the tool wont use a disconnected carry chain, and the carry chain
+-- is one way only. So all the inputs will be in some region in y and all the outputs in another    
+--       ATTRIBUTE LOC OF delayblock : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+i);
 
         
     BEGIN
@@ -70,7 +73,7 @@ BEGIN
 		 
          next_carry4: IF i > 0 GENERATE
 		 
-			ATTRIBUTE LOC OF delayblock : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+i);
+--			ATTRIBUTE LOC OF delayblock : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+i);
 
                         
 		BEGIN
@@ -91,10 +94,10 @@ BEGIN
        
         AFF_FF : if ((j+1)MOD(4) = 1) GENERATE		
 
-		ATTRIBUTE BEL OF FDR_1 : LABEL IS "AFF";
-		ATTRIBUTE LOC OF FDR_1 : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+integer(floor(real(j/4))));
-	 	ATTRIBUTE BEL OF FDR_2 : LABEL IS "BFF";
-		ATTRIBUTE LOC OF FDR_2 : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+integer(floor(real(j/4))));
+--		ATTRIBUTE BEL OF FDR_1 : LABEL IS "AFF";
+--		ATTRIBUTE LOC OF FDR_1 : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+integer(floor(real(j/4))));
+--	 	ATTRIBUTE BEL OF FDR_2 : LABEL IS "BFF";
+--		ATTRIBUTE LOC OF FDR_2 : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+integer(floor(real(j/4))));
 
 		
 	BEGIN

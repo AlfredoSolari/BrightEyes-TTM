@@ -1,20 +1,21 @@
--- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Tue Jul 13 12:27:37 2021
--- Host        : IITMMSDL002 running 64-bit Linux Mint 20.1
--- Command     : write_vhdl -force -mode funcsim -rename_top clockMainGen -prefix
---               clockMainGen_ clockMainGen_sim_netlist.vhdl
+-- Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+-- Date        : Sun Oct 29 12:06:05 2023
+-- Host        : alfredo running 64-bit Ubuntu 22.04.3 LTS
+-- Command     : write_vhdl -force -mode funcsim
+--               /home/alfredo/Documents/BrightEyes-TTM_Repo/FPGA/ttm/hdl/ip/clockMainGen/clockMainGen_sim_netlist.vhdl
 -- Design      : clockMainGen
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
--- Device      : xc7k325tffg900-2
+-- Device      : xc7z020clg400-1
 -- --------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity clockMainGen_clockMainGen_clk_wiz is
+entity clockMainGen_clk_wiz is
   port (
     clk_240 : out STD_LOGIC;
     clk_400 : out STD_LOGIC;
@@ -25,9 +26,9 @@ entity clockMainGen_clockMainGen_clk_wiz is
     clk_in1_p : in STD_LOGIC;
     clk_in1_n : in STD_LOGIC
   );
-end clockMainGen_clockMainGen_clk_wiz;
+end clockMainGen_clk_wiz;
 
-architecture STRUCTURE of clockMainGen_clockMainGen_clk_wiz is
+architecture STRUCTURE of clockMainGen_clk_wiz is
   signal clk_100_clockMainGen : STD_LOGIC;
   signal clk_100_clockMainGen_en_clk : STD_LOGIC;
   signal clk_240_clockMainGen : STD_LOGIC;
@@ -80,54 +81,87 @@ architecture STRUCTURE of clockMainGen_clockMainGen_clk_wiz is
   attribute XILINX_LEGACY_PRIM : string;
   attribute XILINX_LEGACY_PRIM of clkout1_buf : label is "BUFGCE";
   attribute XILINX_TRANSFORM_PINMAP : string;
-  attribute XILINX_TRANSFORM_PINMAP of clkout1_buf : label is "CE:CE0 I:I0";
+  attribute XILINX_TRANSFORM_PINMAP of clkout1_buf : label is "CE:CE0 I:I0 GND:S1,IGNORE0,CE1 VCC:S0,IGNORE1,I1";
   attribute BOX_TYPE of clkout1_buf_en : label is "PRIMITIVE";
   attribute BOX_TYPE of clkout2_buf : label is "PRIMITIVE";
   attribute XILINX_LEGACY_PRIM of clkout2_buf : label is "BUFGCE";
-  attribute XILINX_TRANSFORM_PINMAP of clkout2_buf : label is "CE:CE0 I:I0";
+  attribute XILINX_TRANSFORM_PINMAP of clkout2_buf : label is "CE:CE0 I:I0 GND:S1,IGNORE0,CE1 VCC:S0,IGNORE1,I1";
   attribute BOX_TYPE of clkout2_buf_en : label is "PRIMITIVE";
   attribute BOX_TYPE of clkout3_buf : label is "PRIMITIVE";
   attribute XILINX_LEGACY_PRIM of clkout3_buf : label is "BUFGCE";
-  attribute XILINX_TRANSFORM_PINMAP of clkout3_buf : label is "CE:CE0 I:I0";
+  attribute XILINX_TRANSFORM_PINMAP of clkout3_buf : label is "CE:CE0 I:I0 GND:S1,IGNORE0,CE1 VCC:S0,IGNORE1,I1";
   attribute BOX_TYPE of clkout3_buf_en : label is "PRIMITIVE";
   attribute BOX_TYPE of clkout4_buf : label is "PRIMITIVE";
   attribute XILINX_LEGACY_PRIM of clkout4_buf : label is "BUFGCE";
-  attribute XILINX_TRANSFORM_PINMAP of clkout4_buf : label is "CE:CE0 I:I0";
+  attribute XILINX_TRANSFORM_PINMAP of clkout4_buf : label is "CE:CE0 I:I0 GND:S1,IGNORE0,CE1 VCC:S0,IGNORE1,I1";
   attribute BOX_TYPE of clkout4_buf_en : label is "PRIMITIVE";
   attribute BOX_TYPE of mmcm_adv_inst : label is "PRIMITIVE";
   attribute ASYNC_REG_boolean : boolean;
   attribute ASYNC_REG_boolean of \seq_reg1_reg[0]\ : label is std.standard.true;
+  attribute KEEP : string;
+  attribute KEEP of \seq_reg1_reg[0]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg1_reg[1]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg1_reg[1]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg1_reg[2]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg1_reg[2]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg1_reg[3]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg1_reg[3]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg1_reg[4]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg1_reg[4]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg1_reg[5]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg1_reg[5]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg1_reg[6]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg1_reg[6]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg1_reg[7]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg1_reg[7]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg2_reg[0]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg2_reg[0]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg2_reg[1]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg2_reg[1]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg2_reg[2]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg2_reg[2]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg2_reg[3]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg2_reg[3]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg2_reg[4]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg2_reg[4]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg2_reg[5]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg2_reg[5]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg2_reg[6]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg2_reg[6]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg2_reg[7]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg2_reg[7]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg3_reg[0]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg3_reg[0]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg3_reg[1]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg3_reg[1]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg3_reg[2]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg3_reg[2]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg3_reg[3]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg3_reg[3]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg3_reg[4]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg3_reg[4]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg3_reg[5]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg3_reg[5]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg3_reg[6]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg3_reg[6]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg3_reg[7]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg3_reg[7]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg4_reg[0]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg4_reg[0]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg4_reg[1]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg4_reg[1]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg4_reg[2]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg4_reg[2]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg4_reg[3]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg4_reg[3]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg4_reg[4]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg4_reg[4]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg4_reg[5]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg4_reg[5]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg4_reg[6]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg4_reg[6]\ : label is "yes";
   attribute ASYNC_REG_boolean of \seq_reg4_reg[7]\ : label is std.standard.true;
+  attribute KEEP of \seq_reg4_reg[7]\ : label is "yes";
 begin
   locked <= \^locked\;
 clkf_buf: unisim.vcomponents.BUFG
@@ -148,7 +182,8 @@ clkout1_buf: unisim.vcomponents.BUFGCTRL
     generic map(
       INIT_OUT => 0,
       PRESELECT_I0 => true,
-      PRESELECT_I1 => false
+      PRESELECT_I1 => false,
+      SIM_DEVICE => "7SERIES"
     )
         port map (
       CE0 => seq_reg1(7),
@@ -170,7 +205,8 @@ clkout2_buf: unisim.vcomponents.BUFGCTRL
     generic map(
       INIT_OUT => 0,
       PRESELECT_I0 => true,
-      PRESELECT_I1 => false
+      PRESELECT_I1 => false,
+      SIM_DEVICE => "7SERIES"
     )
         port map (
       CE0 => seq_reg2(7),
@@ -192,7 +228,8 @@ clkout3_buf: unisim.vcomponents.BUFGCTRL
     generic map(
       INIT_OUT => 0,
       PRESELECT_I0 => true,
-      PRESELECT_I1 => false
+      PRESELECT_I1 => false,
+      SIM_DEVICE => "7SERIES"
     )
         port map (
       CE0 => seq_reg3(7),
@@ -214,7 +251,8 @@ clkout4_buf: unisim.vcomponents.BUFGCTRL
     generic map(
       INIT_OUT => 0,
       PRESELECT_I0 => true,
-      PRESELECT_I1 => false
+      PRESELECT_I1 => false,
+      SIM_DEVICE => "7SERIES"
     )
         port map (
       CE0 => seq_reg4(7),
@@ -692,7 +730,7 @@ end clockMainGen;
 
 architecture STRUCTURE of clockMainGen is
 begin
-inst: entity work.clockMainGen_clockMainGen_clk_wiz
+inst: entity work.clockMainGen_clk_wiz
      port map (
       clk_100 => clk_100,
       clk_240 => clk_240,

@@ -24,8 +24,8 @@ entity top_diff is
 	    --constant DEBUG_FAKE_PHOTON_ON : boolean := false;
 	    ENABLE_SYLAP : boolean := true;
 	    
-	    CHANNELS      : INTEGER:=25;
-	    CHANNELS_DIFF : INTEGER:=25;
+	    CHANNELS      : INTEGER:=3;
+	    CHANNELS_DIFF : INTEGER:=3;
 	    
 		STAGES		: INTEGER:=128*4; --346*4; --1396 - 4 * (3 for the hit_filter);
         STAGES_W    : INTEGER:=20;
@@ -861,7 +861,7 @@ architecture top_diff_arch of top_diff is
             if (locked_sysClk='0') then    
                 single_channel_out <= '0';
             elsif rising_edge(clk_400) then
-                single_channel_out <= photon_channels(24);
+                single_channel_out <= photon_channels(CHANNELS-1);
             end if;
     end process;   
     

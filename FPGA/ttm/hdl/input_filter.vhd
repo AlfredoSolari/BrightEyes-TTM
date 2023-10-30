@@ -51,11 +51,13 @@ ARCHITECTURE structure OF input_filter IS
 	SIGNAL fired 			        : std_logic;
 	SIGNAL clear                    : std_logic;
 
-	
-	ATTRIBUTE LOC OF input_filter1       : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff);	
-	ATTRIBUTE LOC OF input_filter2       : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+1);	
-	ATTRIBUTE LOC OF input_filter_fired1 : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+2);
-	ATTRIBUTE LOC OF input_filter_fired2 : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+3);	
+
+-- Removed so placing can be more generic
+-- @Alfredo check later wheter the whole design uses this close to the TDL or not
+--	ATTRIBUTE LOC OF input_filter1       : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff);	
+--	ATTRIBUTE LOC OF input_filter2       : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+1);	
+--	ATTRIBUTE LOC OF input_filter_fired1 : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+2);
+--	ATTRIBUTE LOC OF input_filter_fired2 : LABEL IS "SLICE_X"&INTEGER'image(Xoff)&"Y"&INTEGER'image(Yoff+3);	
 
 
 
